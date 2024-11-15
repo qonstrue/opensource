@@ -32,5 +32,8 @@
       }
     }
   ],
+  "release": {
+    "projects": ["packages/*"]
+  },
   "defaultBase": "main"
 }
