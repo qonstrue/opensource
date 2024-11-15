@@ -21,8 +21,13 @@
           "targetName": "typecheck"
         },
         "build": {
+          "dependsOn": ["^build"],
           "targetName": "build",
+          "outputs": ["{projectRoot}/dist"],
           "configName": "tsconfig.lib.json"
+        },
+        "lint": {
+          "cache": true
         }
       }
     }
