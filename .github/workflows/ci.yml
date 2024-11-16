@@ -24,8 +24,8 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - uses: nrwl/nx-set-shas@v4
       - name: Install packages
-        uses: nrwl/nx-set-shas@v4
         run: npm ci --legacy-peer-deps
 
       - name: Run lint, test and build
