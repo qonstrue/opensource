@@ -1,3 +1,13 @@
+## 1.1.1 (2024-11-16)
+
+### 🚀 Features
+
+- **python:** support what the python code does ([488242d](https://github.com/qonstrue/opensource/commit/488242d))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.0 (2024-11-16)
 
 ### 🚀 Features
