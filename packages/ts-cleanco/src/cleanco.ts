@@ -40,18 +40,21 @@ const handleSuffixes =
   (config: CleanerConfig) => (potentiallyDirtyName: string) =>
     allSuffixes.reduce((accum, suffix) => {
       if (config.matchSuffix && potentiallyDirtyName.endsWith(` ${suffix}`)) {
-        potentiallyDirtyName = stripAllWhitespace(
-          potentiallyDirtyName.substring(
-            0,
-            potentiallyDirtyName.length - suffix.length
-          )
+        potentiallyDirtyName = replaceMatchingSuffix(
+          potentiallyDirtyName,
+          suffix
+        );
+        potentiallyDirtyName = replaceMatchingSuffixIgnoringPunctuation(
+          potentiallyDirtyName,
+          suffix
         );
         if (!config.matchMulti) return potentiallyDirtyName;
       }
 
       if (config.matchPrefix && potentiallyDirtyName.startsWith(`${suffix} `)) {
-        potentiallyDirtyName = stripAllWhitespace(
-          potentiallyDirtyName.substring(suffix.length + 1)
+        potentiallyDirtyName = replaceMatchingPrefix(
+          potentiallyDirtyName,
+          suffix
         );
         if (!config.matchMulti) return potentiallyDirtyName;
       }
@@ -59,9 +62,9 @@ const handleSuffixes =
       if (config.matchMiddle) {
         const idx = potentiallyDirtyName.indexOf(` ${suffix} `);
         if (idx >= 0) {
-          potentiallyDirtyName = stripAllWhitespace(
-            potentiallyDirtyName.substring(0, idx) +
-              potentiallyDirtyName.substring(idx + suffix.length + 1)
+          potentiallyDirtyName = replaceMatchingMiddle(
+            potentiallyDirtyName,
+            suffix
           );
           if (!config.matchMulti) return potentiallyDirtyName;
         }
@@ -75,3 +78,51 @@ const stripAllWhitespace = (s: string) =>
     .trim()
     .replace(/\s+/g, ' ')
     .replace(/[^\.\w\/]+/g, ' ');
+
+export const replaceMatchingSuffix = (
+  potentiallyDirtyName: string,
+  suffix: string
+) =>
+  caseInsensitiveReplace(
+    potentiallyDirtyName,
+    ` ${suffix.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`
+  );
+
+export const replaceMatchingSuffixIgnoringPunctuation = (
+  potentiallyDirtyName: string,
+  suffix: string
+) =>
+  caseInsensitiveReplace(
+    removeInternalCharsFromLastWord(potentiallyDirtyName),
+    ` ${removePunctuation(suffix).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`
+  );
+
+const replaceMatchingPrefix = (potentiallyDirtyName: string, prefix: string) =>
+  caseInsensitiveReplace(
+    potentiallyDirtyName,
+    `^${prefix.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')} `
+  );
+
+const replaceMatchingMiddle = (potentiallyDirtyName: string, prefix: string) =>
+  caseInsensitiveReplace(
+    potentiallyDirtyName,
+    ` ${prefix.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')} `,
+    ' '
+  );
+
+const caseInsensitiveReplace = (
+  originalString: string,
+  searchPattern: string,
+  replaceString: string = ''
+) =>
+  stripAllWhitespace(
+    originalString.replace(new RegExp(searchPattern, 'i'), replaceString)
+  );
+
+export const removePunctuation = (text: string): string =>
+  text.replace(/[.,\/#!$%^&*()_+-='":{}|<>?]/g, '');
+
+export const removeInternalCharsFromLastWord = (str: string): string =>
+  str.replace(/\S+(\S*)$/, (match) =>
+    match.trim().replace(/[\s.,\/#!$%^&*()_+-='":{}|<>?]/g, '')
+  );
