@@ -22,6 +22,7 @@
   "scripts": {
     "serve": "node dist/index.js",
     "build": "tsc --build tsconfig.lib.json",
+    "test": "jest",
     "typecheck": "tsc"
   },
   "keywords": [
@@ -31,6 +32,7 @@
   "author": "qonstrue",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "22.9.0",
     "typescript": "5.5.2"
   }
