@@ -67,7 +67,7 @@ const handleSuffixes =
         }
       }
 
-      return accum;
+      return potentiallyDirtyName;
     }, potentiallyDirtyName);
 
 const stripAllWhitespace = (s: string) =>
