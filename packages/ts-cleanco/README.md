@@ -39,11 +39,11 @@ The package can be customized to your specific needs by providing a configuratio
 import { cleanco, CleanerConfig } from 'ts-cleanco';
 
 const config: CleanerConfig = {
-    // Customize cleaning rules here, e.g.,
-    removePunctuation: false,
-    toLowerCase: true,
-    trimWhitespace: true,
-    // ...other options
+  // Customize cleaning rules here, e.g.,
+  matchSuffix: true,    // match and remove any strings in the suffix (default behaviour)
+  matchPrefix: false,   // match and remove any strings in the prefix
+  matchMiddle: false,   // match and remove any strings in the middle
+  matchMulti: false,    // match multiple instances (suffix, prefix, middle)
 };
 
 const cleanName = cleanco('  Apple Inc.  ', config);
