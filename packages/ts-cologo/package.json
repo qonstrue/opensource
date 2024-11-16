@@ -1,14 +1,14 @@
 {
-  "name": "ts-cleanco",
-  "version": "1.1.15",
-  "description": "Typescript implementation of cleanco python",
+  "name": "ts-cologo",
+  "version": "1.0.6",
+  "description": "Extract company logos",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**"
   ],
-  "homepage": "https://github.com/qonstrue/opensource/tree/main/packages/ts-cleanco#readme",
+  "homepage": "https://github.com/qonstrue/opensource/tree/main/packages/ts-cologos#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qonstrue/opensource.git"
