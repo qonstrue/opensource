@@ -5,7 +5,7 @@ describe('Cleanco', () => {
   it.each(simpleTestCases)(
     'should handle basic cleanup: %s, %s',
     (testCase, name) => {
-      expect(cleanCo(name)).toEqual('Hello World');
+      expect(cleanCo(name)).toEqual('hello world');
     }
   );
 });
