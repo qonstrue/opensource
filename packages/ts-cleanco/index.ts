@@ -1,1 +1,1 @@
-export * from './cleanco';
+export * from './src/cleanco';
