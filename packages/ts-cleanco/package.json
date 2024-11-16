@@ -1,6 +1,6 @@
 {
   "name": "ts-cleanco",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Typescript implementation of cleanco python",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
