@@ -1,17 +1,17 @@
 import { termsByCountry, termsByType } from './termdata';
 
 export type CleanerConfig = {
-  suffix: boolean;
-  prefix: boolean;
-  middle: boolean;
-  multi: boolean;
+  matchSuffix: boolean;
+  matchPrefix: boolean;
+  matchMiddle: boolean;
+  matchMulti: boolean;
 };
 
 const defaultCleanerConfig: CleanerConfig = {
-  suffix: true,
-  prefix: false,
-  middle: false,
-  multi: false,
+  matchSuffix: true,
+  matchPrefix: false,
+  matchMiddle: false,
+  matchMulti: false,
 };
 
 export const cleanCo = (
@@ -37,40 +37,38 @@ const allSuffixes = [...allTypeSuffixes, ...allTermsByCountrySuffixes].sort(
 );
 
 const handleSuffixes =
-  (config: CleanerConfig) => (potentiallyDirtyName: string) => {
-    console.log(potentiallyDirtyName);
-    return allSuffixes.reduce((accum, suffix) => {
-      if (config.suffix && potentiallyDirtyName.endsWith(` ${suffix}`)) {
+  (config: CleanerConfig) => (potentiallyDirtyName: string) =>
+    allSuffixes.reduce((accum, suffix) => {
+      if (config.matchSuffix && potentiallyDirtyName.endsWith(` ${suffix}`)) {
         potentiallyDirtyName = stripAllWhitespace(
           potentiallyDirtyName.substring(
             0,
             potentiallyDirtyName.length - suffix.length
           )
         );
-        if (!config.multi) return potentiallyDirtyName;
+        if (!config.matchMulti) return potentiallyDirtyName;
       }
 
-      if (config.prefix && potentiallyDirtyName.startsWith(`${suffix} `)) {
+      if (config.matchPrefix && potentiallyDirtyName.startsWith(`${suffix} `)) {
         potentiallyDirtyName = stripAllWhitespace(
           potentiallyDirtyName.substring(suffix.length + 1)
         );
-        if (!config.multi) return potentiallyDirtyName;
+        if (!config.matchMulti) return potentiallyDirtyName;
       }
 
-      if (config.middle) {
+      if (config.matchMiddle) {
         const idx = potentiallyDirtyName.indexOf(` ${suffix} `);
         if (idx >= 0) {
           potentiallyDirtyName = stripAllWhitespace(
             potentiallyDirtyName.substring(0, idx) +
               potentiallyDirtyName.substring(idx + suffix.length + 1)
           );
-          if (!config.multi) return potentiallyDirtyName;
+          if (!config.matchMulti) return potentiallyDirtyName;
         }
       }
 
       return accum;
     }, potentiallyDirtyName);
-  };
 
 const stripAllWhitespace = (s: string) =>
   s
