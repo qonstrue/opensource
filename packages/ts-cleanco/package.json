@@ -1,6 +1,6 @@
 {
   "name": "ts-cleanco",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Typescript implementation of cleanco python",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -8,16 +8,30 @@
   "files": [
     "dist/**"
   ],
+  "homepage": "https://github.com/qonstrue/opensource/tree/main/packages/ts-cleanco#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qonstrue/opensource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qonstrue/opensource/issues"
+  },
+  "engines": {
+    "node": ">=22.11.0"
+  },
   "scripts": {
     "serve": "node dist/index.js",
     "build": "tsc --build tsconfig.lib.json",
     "typecheck": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "companies",
+    "search"
+  ],
+  "author": "qonstrue",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "18.16.9",
-    "typescript": "~5.5.2"
+    "@types/node": "22.9.0",
+    "typescript": "5.5.2"
   }
 }
