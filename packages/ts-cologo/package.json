@@ -1,6 +1,6 @@
 {
   "name": "ts-cologo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Extract company logos",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
