@@ -1,3 +1,13 @@
+## 1.1.14 (2024-11-17)
+
+### 🚀 Features
+
+- Fallback company logo fetch ([a708f03](https://github.com/qonstrue/opensource/commit/a708f03))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.13 (2024-11-17)
 
 ### 🚀 Features
