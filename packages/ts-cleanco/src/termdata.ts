@@ -1,5 +1,5 @@
 /*
-At the time of writinig this, this file was a complete copy of Petri Savolainen' file at https://github.com/psolin/cleanco.git
+At the time of writing this, this file was a complete copy of Paul Solin' file at https://github.com/psolin/cleanco.git
  */
 export const termsByType = {
   Corporation: [
