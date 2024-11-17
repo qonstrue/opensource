@@ -1,4 +1,9 @@
-import { multiCleanupTests, simpleTestCases } from './fixtures/testCases';
+import {
+  doubleCleanupTests,
+  multiCleanupTests,
+  preservingCleanupTests,
+  simpleTestCases,
+} from './fixtures/testCases';
 import {
   cleanCo,
   removeInternalCharsFromLastWord,
@@ -25,6 +30,34 @@ describe('Cleanco', () => {
           matchMulti: true,
         })
       ).toEqual('Hello World');
+    }
+  );
+
+  it.each(doubleCleanupTests)(
+    'should handle double cleanup: %s (%s)',
+    (_, name) => {
+      expect(
+        cleanCo(name, {
+          matchPrefix: true,
+          matchMiddle: true,
+          matchSuffix: true,
+          matchMulti: true,
+        })
+      ).toEqual('Hello World');
+    }
+  );
+
+  it.skip.each(preservingCleanupTests)(
+    'should handle preserving cleanup: %s (%s - %s)',
+    (_, name, expected) => {
+      expect(
+        cleanCo(name, {
+          matchPrefix: true,
+          matchMiddle: true,
+          matchSuffix: true,
+          matchMulti: true,
+        })
+      ).toEqual(expected);
     }
   );
 });
