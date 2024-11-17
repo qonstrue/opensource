@@ -1,3 +1,13 @@
+## 1.1.11 (2024-11-17)
+
+### 🚀 Features
+
+- Added package to extract company logos or favicons ([6e38605](https://github.com/qonstrue/opensource/commit/6e38605))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.10 (2024-11-17)
 
 This was a version bump only, there were no code changes.
