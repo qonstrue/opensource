@@ -4,20 +4,19 @@ import {
   removeInternalCharsFromLastWord,
   removePunctuation,
   replaceMatchingSuffix,
-  replaceMatchingSuffixIgnoringPunctuation,
 } from './cleanco';
 
 describe('Cleanco', () => {
   it.each(simpleTestCases)(
     'should handle basic cleanup: %s (%s)',
-    (testCase, name) => {
+    (_, name) => {
       expect(cleanCo(name)).toEqual('hello world');
     }
   );
 
   it.each(multiCleanupTests)(
     'should handle multiple cleanup: %s (%s)',
-    (testCase, name) => {
+    (_, name) => {
       expect(
         cleanCo(name, {
           matchPrefix: true,
@@ -39,21 +38,6 @@ describe('Replace suffix in company name', () => {
     'should remove punctuation from the last word in a sentence',
     (name, suffix, expected) => {
       expect(replaceMatchingSuffix(name, suffix)).toEqual(expected);
-    }
-  );
-});
-
-describe('Replace suffix in company name ignoring punctuation', () => {
-  it.each([
-    ['Sustentabilitas ltd', 'ltd.', 'Sustentabilitas'],
-    ['Sustentabilitas sro', 's.r.o', 'Sustentabilitas'],
-    ['Sustentabilitas Back', 's.r.o', 'Sustentabilitas Back'],
-  ])(
-    'should remove punctuation from the last word in a sentence',
-    (name, suffix, expected) => {
-      expect(replaceMatchingSuffixIgnoringPunctuation(name, suffix)).toEqual(
-        expected
-      );
     }
   );
 });

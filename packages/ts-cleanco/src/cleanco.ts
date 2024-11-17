@@ -39,19 +39,15 @@ const allSuffixes = [...allTypeSuffixes, ...allTermsByCountrySuffixes].sort(
 const handleSuffixes =
   (config: CleanerConfig) => (potentiallyDirtyName: string) =>
     allSuffixes.reduce((accum, suffix) => {
-      if (config.matchSuffix && potentiallyDirtyName.endsWith(` ${suffix}`)) {
+      if (config.matchSuffix) {
         potentiallyDirtyName = replaceMatchingSuffix(
-          potentiallyDirtyName,
-          suffix
-        );
-        potentiallyDirtyName = replaceMatchingSuffixIgnoringPunctuation(
-          potentiallyDirtyName,
-          suffix
+          removeInternalCharsFromLastWord(potentiallyDirtyName),
+          removePunctuation(suffix)
         );
         if (!config.matchMulti) return potentiallyDirtyName;
       }
 
-      if (config.matchPrefix && potentiallyDirtyName.startsWith(`${suffix} `)) {
+      if (config.matchPrefix) {
         potentiallyDirtyName = replaceMatchingPrefix(
           potentiallyDirtyName,
           suffix
@@ -86,15 +82,6 @@ export const replaceMatchingSuffix = (
   caseInsensitiveReplace(
     potentiallyDirtyName,
     ` ${suffix.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`
-  );
-
-export const replaceMatchingSuffixIgnoringPunctuation = (
-  potentiallyDirtyName: string,
-  suffix: string
-) =>
-  caseInsensitiveReplace(
-    removeInternalCharsFromLastWord(potentiallyDirtyName),
-    ` ${removePunctuation(suffix).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')}$`
   );
 
 const replaceMatchingPrefix = (potentiallyDirtyName: string, prefix: string) =>
