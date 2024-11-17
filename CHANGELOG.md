@@ -1,3 +1,13 @@
+## 1.1.6 (2024-11-17)
+
+### 🚀 Features
+
+- Handle punctuation in replacements at the start of the name ([b171c7d](https://github.com/qonstrue/opensource/commit/b171c7d))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.5 (2024-11-17)
 
 ### 🚀 Features
