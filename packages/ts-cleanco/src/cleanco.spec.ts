@@ -10,7 +10,7 @@ describe('Cleanco', () => {
   it.each(simpleTestCases)(
     'should handle basic cleanup: %s (%s)',
     (_, name) => {
-      expect(cleanCo(name)).toEqual('hello world');
+      expect(cleanCo(name)).toEqual('Hello World');
     }
   );
 
@@ -24,7 +24,7 @@ describe('Cleanco', () => {
           matchSuffix: true,
           matchMulti: true,
         })
-      ).toEqual('hello world');
+      ).toEqual('Hello World');
     }
   );
 });

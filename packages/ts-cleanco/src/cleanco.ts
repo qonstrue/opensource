@@ -17,10 +17,7 @@ const defaultCleanerConfig: CleanerConfig = {
 export const cleanCo = (
   potentiallyDirtyName: string,
   config: CleanerConfig = defaultCleanerConfig
-) =>
-  handleSuffixes(config)(
-    stripAllWhitespace(potentiallyDirtyName).toLowerCase()
-  );
+) => handleSuffixes(config)(stripAllWhitespace(potentiallyDirtyName));
 
 const allTypeSuffixes = Object.entries(termsByType).reduce(
   (accum, each) => accum.concat(each[1]),
@@ -56,7 +53,9 @@ const handleSuffixes =
       }
 
       if (config.matchMiddle) {
-        const idx = potentiallyDirtyName.indexOf(` ${suffix} `);
+        const idx = potentiallyDirtyName
+          .toLowerCase()
+          .indexOf(` ${suffix.toLowerCase()} `);
         if (idx >= 0) {
           potentiallyDirtyName = replaceMatchingMiddle(
             potentiallyDirtyName,
