@@ -21,19 +21,9 @@ const base64String = await fetchAsBase64String(
   fetch,
   'https://www.iana.org/_img/2022/iana-logo-header.svg'
 );
+const base64Logo = await fallbackCompanyLogoFetch(fetch, 'google.com')
 console.log(base64String); // data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w....
-```
-
-## Customization
-
-The package can be customized to your specific needs by providing a configuration object:
-
-```typescript
-import { cologo, LogoConfig } from 'ts-cologo';
-
-const config: LogoConfig = {};
-
-const logo = await fetchAsBase64String(fetch, 'apple.com', config);
+console.log(base64Logo); // data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w....
 ```
 
 ## Contributing
