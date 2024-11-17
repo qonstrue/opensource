@@ -1,2 +1,2 @@
-fixtures
-*.spec.ts
+src/fixtures
+src/*.spec.ts
