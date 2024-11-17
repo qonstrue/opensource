@@ -43,7 +43,7 @@ const config: CleanerConfig = {
   matchSuffix: true,    // match and remove any strings in the suffix (default behaviour)
   matchPrefix: false,   // match and remove any strings in the prefix
   matchMiddle: false,   // match and remove any strings in the middle
-  matchMulti: false,    // match multiple instances (suffix, prefix, middle)
+  matchMultiple: false, // match multiple instances (suffix, prefix, middle)
 };
 
 const cleanName = cleanco('  Apple Inc.  ', config);

@@ -1,23 +1,23 @@
 import { termsByCountry, termsByType } from './termdata';
 
 export type CleanerConfig = {
-  matchSuffix: boolean;
-  matchPrefix: boolean;
-  matchMiddle: boolean;
-  matchMulti: boolean;
+  readonly matchSuffix: boolean;
+  readonly matchPrefix: boolean;
+  readonly matchMiddle: boolean;
+  readonly matchMultiple: boolean;
 };
 
 const defaultCleanerConfig: CleanerConfig = {
   matchSuffix: true,
   matchPrefix: false,
   matchMiddle: false,
-  matchMulti: false,
+  matchMultiple: false,
 };
 
 export const cleanCo = (
   potentiallyDirtyName: string,
   config: CleanerConfig = defaultCleanerConfig
-) => handleSuffixes(config)(stripAllWhitespace(potentiallyDirtyName));
+): string => handleSuffixes(config)(stripAllWhitespace(potentiallyDirtyName));
 
 const allTypeSuffixes = Object.entries(termsByType).reduce(
   (accum, each) => accum.concat(each[1]),
@@ -34,22 +34,23 @@ const allSuffixes = [...allTypeSuffixes, ...allTermsByCountrySuffixes].sort(
 );
 
 const handleSuffixes =
-  (config: CleanerConfig) => (potentiallyDirtyName: string) =>
+  (config: CleanerConfig) =>
+  (potentiallyDirtyName: string): string =>
     allSuffixes.reduce((accum, suffix) => {
       if (config.matchSuffix) {
         potentiallyDirtyName = replaceMatchingSuffix(
           removeInternalCharsFromLastWord(potentiallyDirtyName),
           removePunctuation(suffix)
         );
-        if (!config.matchMulti) return potentiallyDirtyName;
+        if (!config.matchMultiple) return potentiallyDirtyName;
       }
 
       if (config.matchPrefix) {
         potentiallyDirtyName = replaceMatchingPrefix(
-          potentiallyDirtyName,
-          suffix
+          removeInternalCharsFromFirstWord(potentiallyDirtyName),
+          removePunctuation(suffix)
         );
-        if (!config.matchMulti) return potentiallyDirtyName;
+        if (!config.matchMultiple) return potentiallyDirtyName;
       }
 
       if (config.matchMiddle) {
@@ -61,7 +62,7 @@ const handleSuffixes =
             potentiallyDirtyName,
             suffix
           );
-          if (!config.matchMulti) return potentiallyDirtyName;
+          if (!config.matchMultiple) return potentiallyDirtyName;
         }
       }
 
@@ -110,5 +111,10 @@ export const removePunctuation = (text: string): string =>
 
 export const removeInternalCharsFromLastWord = (str: string): string =>
   str.replace(/\S+(\S*)$/, (match) =>
+    match.trim().replace(/[\s.,\/#!$%^&*()_+-='":{}|<>?]/g, '')
+  );
+
+export const removeInternalCharsFromFirstWord = (str: string): string =>
+  str.replace(/^(\S*)\S+/, (match) =>
     match.trim().replace(/[\s.,\/#!$%^&*()_+-='":{}|<>?]/g, '')
   );

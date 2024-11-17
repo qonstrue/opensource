@@ -6,6 +6,7 @@ import {
 } from './fixtures/testCases';
 import {
   cleanCo,
+  removeInternalCharsFromFirstWord,
   removeInternalCharsFromLastWord,
   removePunctuation,
   replaceMatchingSuffix,
@@ -27,7 +28,7 @@ describe('Cleanco', () => {
           matchPrefix: true,
           matchMiddle: true,
           matchSuffix: true,
-          matchMulti: true,
+          matchMultiple: true,
         })
       ).toEqual('Hello World');
     }
@@ -41,7 +42,7 @@ describe('Cleanco', () => {
           matchPrefix: true,
           matchMiddle: true,
           matchSuffix: true,
-          matchMulti: true,
+          matchMultiple: true,
         })
       ).toEqual('Hello World');
     }
@@ -55,7 +56,7 @@ describe('Cleanco', () => {
           matchPrefix: true,
           matchMiddle: true,
           matchSuffix: true,
-          matchMulti: true,
+          matchMultiple: true,
         })
       ).toEqual(expected);
     }
@@ -75,7 +76,7 @@ describe('Replace suffix in company name', () => {
   );
 });
 
-describe('Handling punctuation', () => {
+describe('Handling punctuation at the end of a sentence', () => {
   it.each([
     ['This is a str.ing.', 'This is a string'],
     ['This i.s a string.', 'This i.s a string'],
@@ -85,6 +86,19 @@ describe('Handling punctuation', () => {
     'should remove punctuation from the last word in a sentence',
     (original, resolved) => {
       expect(removeInternalCharsFromLastWord(original)).toEqual(resolved);
+    }
+  );
+});
+
+describe('Handling punctuation at the start of a sentence', () => {
+  it.each([
+    ['Th.is. is a string', 'This is a string'],
+    ['This i.s a string.', 'This i.s a string.'],
+    ['This is a stri.ng.', 'This is a stri.ng.'],
+  ])(
+    'should remove punctuation from the first word in a sentence',
+    (original, resolved) => {
+      expect(removeInternalCharsFromFirstWord(original)).toEqual(resolved);
     }
   );
 });
