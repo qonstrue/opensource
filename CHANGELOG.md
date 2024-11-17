@@ -1,3 +1,13 @@
+## 1.1.5 (2024-11-17)
+
+### 🚀 Features
+
+- additional test cases from the python library ([3851bcf](https://github.com/qonstrue/opensource/commit/3851bcf))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.4 (2024-11-17)
 
 This was a version bump only, there were no code changes.
