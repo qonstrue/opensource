@@ -15,9 +15,13 @@ npm install ts-cologo
 ## Usage
 
 ```typescript
-import { cologo } from 'ts-cologo';
+import { fetchAsBase64String } from 'ts-cologo';
 
-const logo = await cologo('apple.com');
+const base64String = await fetchAsBase64String(
+  fetch,
+  'https://www.iana.org/_img/2022/iana-logo-header.svg'
+);
+console.log(base64String); // data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w....
 ```
 
 ## Customization
@@ -27,10 +31,9 @@ The package can be customized to your specific needs by providing a configuratio
 ```typescript
 import { cologo, LogoConfig } from 'ts-cologo';
 
-const config: LogoConfig = {
-};
+const config: LogoConfig = {};
 
-const logo = await cologo('apple.com', config);
+const logo = await fetchAsBase64String(fetch, 'apple.com', config);
 ```
 
 ## Contributing

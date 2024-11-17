@@ -1,1 +1,1 @@
-console.log('Hello World');
+export * from './src/fetchAsBase64String';
