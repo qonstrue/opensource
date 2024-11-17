@@ -1,3 +1,13 @@
+## 1.1.13 (2024-11-17)
+
+### 🚀 Features
+
+- add fetchAsBase64String to download logos as base64 using fetch ([448dac7](https://github.com/qonstrue/opensource/commit/448dac7))
+
+### ❤️  Thank You
+
+- sustentabilitas
+
 ## 1.1.12 (2024-11-17)
 
 This was a version bump only, there were no code changes.
