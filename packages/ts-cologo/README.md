@@ -1,6 +1,6 @@
 **README.md**
 
-# Company Logos
+# Get company logos/favicons by domain
 
 **A TypeScript package to find company logos or favicons by domain (use as a fallback).**
 
