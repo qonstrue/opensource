@@ -4,14 +4,14 @@ export type CleanerConfig = {
   readonly matchSuffix: boolean;
   readonly matchPrefix: boolean;
   readonly matchMiddle: boolean;
-  readonly matchMultiple: boolean;
+  readonly matchMulti: boolean;
 };
 
 const defaultCleanerConfig: CleanerConfig = {
   matchSuffix: true,
   matchPrefix: false,
   matchMiddle: false,
-  matchMultiple: false,
+  matchMulti: false,
 };
 
 export const cleanCo = (
@@ -42,7 +42,7 @@ const handleSuffixes =
           removeInternalCharsFromLastWord(potentiallyDirtyName),
           removePunctuation(suffix)
         );
-        if (!config.matchMultiple) return potentiallyDirtyName;
+        if (!config.matchMulti) return potentiallyDirtyName;
       }
 
       if (config.matchPrefix) {
@@ -50,7 +50,7 @@ const handleSuffixes =
           removeInternalCharsFromFirstWord(potentiallyDirtyName),
           removePunctuation(suffix)
         );
-        if (!config.matchMultiple) return potentiallyDirtyName;
+        if (!config.matchMulti) return potentiallyDirtyName;
       }
 
       if (config.matchMiddle) {
@@ -62,7 +62,7 @@ const handleSuffixes =
             potentiallyDirtyName,
             suffix
           );
-          if (!config.matchMultiple) return potentiallyDirtyName;
+          if (!config.matchMulti) return potentiallyDirtyName;
         }
       }
 

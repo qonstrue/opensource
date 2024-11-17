@@ -6,7 +6,7 @@
 
 This package is designed to clean and standardize company names, removing unnecessary characters, formatting consistently, and handling common variations. It's particularly useful for data cleaning and normalization tasks.
 
-It's based on the Python code written by [Paul Solin](https://github.com/psolin) at [Git repo](https://github.com/psolin/cleanco.git). All credit to Petri for creating the original library in Python.
+It's based on the Python code written by [Paul Solin](https://github.com/psolin) at [Git repo](https://github.com/psolin/cleanco.git). All credit to Paul for creating the original library in Python.
 
 ## Installation
 
