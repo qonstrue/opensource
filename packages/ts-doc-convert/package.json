@@ -22,7 +22,7 @@
   "scripts": {
     "serve": "node dist/index.js",
     "build": "tsc --build tsconfig.lib.json",
-    "test": "jest",
+    "test": "vitest",
     "typecheck": "tsc"
   },
   "keywords": [
