@@ -1,0 +1,56 @@
+{
+  "name": "ts-doc-convert",
+  "version": "1.0.0",
+  "description": "Extract company logos",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "homepage": "https://github.com/qonstrue/opensource/tree/main/packages/ts-doc-convert#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qonstrue/opensource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qonstrue/opensource/issues"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  },
+  "scripts": {
+    "serve": "node dist/index.js",
+    "build": "tsc --build tsconfig.lib.json",
+    "test": "jest",
+    "typecheck": "tsc"
+  },
+  "keywords": [
+    "llm",
+    "docx",
+    "markdown"
+  ],
+  "author": "qonstrue",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "29.5.14",
+    "@types/node": "22.9.0",
+    "jest": "29.7.0",
+    "ts-jest": "29.2.5",
+    "typescript": "5.6.3"
+  },
+  "dependencies": {
+    "@m2d/html": "^1.0.2",
+    "@m2d/image": "^1.1.0",
+    "@m2d/list": "^0.0.6",
+    "@m2d/math": "^0.0.5",
+    "@m2d/table": "^0.0.5",
+    "effect": "^2.2.3",
+    "mammoth": "^1.9.0",
+    "mdast": "^2.3.2",
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0"
+  }
+}
