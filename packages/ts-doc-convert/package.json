@@ -33,17 +33,17 @@
   "author": "qonstrue",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "22.9.0",
-    "typescript": "5.6.3"
+    "@types/node": "22.15.30",
+    "typescript": "5.8.3"
   },
   "dependencies": {
-    "@m2d/html": "1.0.2",
-    "@m2d/image": "1.1.0",
-    "@m2d/list": "0.0.6",
+    "@m2d/html": "1.1.2",
+    "@m2d/image": "1.2.1",
+    "@m2d/list": "0.0.8",
     "@m2d/math": "0.0.5",
-    "@m2d/table": "0.0.5",
-    "effect": "2.2.3",
-    "mammoth": "1.9.0",
+    "@m2d/table": "0.0.6",
+    "effect": "2.4.19",
+    "mammoth": "1.9.1",
     "mdast": "2.3.2",
     "rehype-parse": "9.0.1",
     "rehype-remark": "10.0.1",
