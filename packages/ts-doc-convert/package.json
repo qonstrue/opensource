@@ -42,7 +42,7 @@
     "@m2d/list": "0.0.6",
     "@m2d/math": "0.0.5",
     "@m2d/table": "0.0.5",
-    "effect": "2.2.3",
+    "effect": "3.16.8",
     "mammoth": "1.9.0",
     "mdast": "2.3.2",
     "rehype-parse": "9.0.1",
