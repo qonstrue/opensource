@@ -33,7 +33,7 @@
   "author": "qonstrue",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "22.9.0",
+    "@types/node": "24.10.9",
     "typescript": "5.6.3"
   },
   "dependencies": {
