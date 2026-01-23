@@ -44,7 +44,7 @@
     "@m2d/table": "0.0.5",
     "effect": "2.2.3",
     "mammoth": "1.11.0",
-    "mdast": "2.3.2",
+    "mdast": "3.0.0",
     "rehype-parse": "9.0.1",
     "rehype-remark": "10.0.1",
     "remark-parse": "11.0.0",
