@@ -27,7 +27,7 @@ jobs:
       - name: Cache node_modules
         uses: actions/setup-node@v4
         with:
-          node-version: 22.10.0
+          node-version: 24.13.0
           cache: 'npm'
 
       - uses: nrwl/nx-set-shas@v4
