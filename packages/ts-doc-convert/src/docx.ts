@@ -50,13 +50,15 @@ export const markdownToDocx = (
           tree,
           {},
           {
+            // Type assertion needed due to pnpm's module resolution creating
+            // duplicate type definitions from different resolution paths
             plugins: [
               listPlugin(),
               htmlPlugin(),
               imagePlugin(),
               mathPlugin(),
               tablePlugin(),
-            ],
+            ] as any,
           },
         )) as Blob;
         const arrayBuffer = await docxBlob.arrayBuffer();

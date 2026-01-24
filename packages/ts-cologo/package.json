@@ -1,5 +1,5 @@
 {
-  "name": "ts-cologo",
+  "name": "@sustentabilitas/ts-cologo",
   "version": "1.1.1",
   "description": "Extract company logos",
   "main": "./dist/index.js",
@@ -31,6 +31,9 @@
   ],
   "author": "qonstrue",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@types/node": "24.10.9",
     "typescript": "5.6.3"
