@@ -1,0 +1,14 @@
+src/
+*.spec.ts
+*.test.ts
+tsconfig.json
+tsconfig.lib.json
+tsconfig.spec.json
+tsconfig.svelte-check.json
+vite.config.mts
+vitest.config.mts
+project.json
+test-output/
+node_modules/
+.vite/
+*.log

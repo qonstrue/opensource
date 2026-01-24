@@ -52,7 +52,7 @@
     }
   ],
   "release": {
-    "projects": ["packages/*"],
+    "projects": ["packages/**"],
     "releaseTagPattern": "release/{version}",
     "git": {
       "commitMessage": "chore(release): {version}"

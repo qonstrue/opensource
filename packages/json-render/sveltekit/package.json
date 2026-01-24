@@ -1,0 +1,72 @@
+{
+  "name": "json-render-sveltekit",
+  "version": "0.1.0",
+  "description": "Svelte/SvelteKit renderer for @json-render/core. JSON becomes Svelte components. Port of @json-render/react by Vercel Labs.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "svelte": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "homepage": "https://github.com/qonstrue/opensource/tree/main/packages/json-render/sveltekit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qonstrue/opensource.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qonstrue/opensource/issues"
+  },
+  "engines": {
+    "node": ">=22.10.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "svelte-check": "svelte-check --tsconfig ./tsconfig.svelte-check.json --threshold error"
+  },
+  "keywords": [
+    "json",
+    "ui",
+    "svelte",
+    "sveltekit",
+    "ai",
+    "generative-ui",
+    "llm",
+    "renderer",
+    "streaming",
+    "components"
+  ],
+  "author": "qonstrue",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@json-render/core": "^0.2.0"
+  },
+  "peerDependencies": {
+    "@json-render/core": "^0.2.0",
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "@types/node": "24.10.9",
+    "svelte": "^5.36.14",
+    "svelte-check": "^4.0.0",
+    "typescript": "5.6.3",
+    "vite": "^6.4.1",
+    "vitest": "^3.2.4",
+    "zod": "^4.0.0"
+  }
+}
