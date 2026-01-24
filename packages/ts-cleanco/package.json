@@ -1,5 +1,5 @@
 {
-  "name": "@sustentabilitas/ts-cleanco",
+  "name": "ts-cleanco",
   "version": "1.1.1",
   "description": "Typescript implementation of cleanco python",
   "main": "./dist/index.js",
