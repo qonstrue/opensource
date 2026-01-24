@@ -1,15 +1,11 @@
 /// <reference types='vitest' />
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const workspaceRoot = path.resolve(__dirname, '../../..');
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: path.join(workspaceRoot, 'node_modules/.vite/packages/json-render/sveltekit'),
+  cacheDir: path.join(__dirname, '../../../node_modules/.vite/packages/json-render/sveltekit'),
   plugins: [
     svelte({
       compilerOptions: {

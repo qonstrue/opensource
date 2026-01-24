@@ -13,7 +13,7 @@
         "outputPath": "packages/json-render/sveltekit/dist",
         "main": "packages/json-render/sveltekit/src/index.ts",
         "tsConfig": "packages/json-render/sveltekit/tsconfig.lib.json",
-        "configFile": "packages/json-render/sveltekit/vite.config.mts",
+        "configFile": "packages/json-render/sveltekit/vite.config.ts",
         "assets": [],
         "generatePackageJson": false
       },
@@ -27,7 +27,7 @@
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "passWithNoTests": true,
-        "configFile": "packages/json-render/sveltekit/vite.config.mts"
+        "configFile": "packages/json-render/sveltekit/vite.config.ts"
       }
     },
     "svelte-check": {
