@@ -1,6 +1,6 @@
 {
   "name": "ts-doc-convert",
-  "version": "1.2.0-0",
+  "version": "1.2.0",
   "description": "Extract company logos",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
