@@ -2,6 +2,7 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import path from 'node:path';
 import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   root: __dirname,
@@ -11,6 +12,13 @@ export default defineConfig({
       compilerOptions: {
         dev: false,
       },
+    }),
+    dts({
+      tsconfigPath: './tsconfig.lib.json',
+      entryRoot: 'src',
+      outDir: 'dist',
+      include: ['src/**/*.ts'],
+      exclude: ['src/**/*.spec.ts', 'src/**/*.test.ts'],
     }),
   ],
   build: {
