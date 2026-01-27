@@ -5,6 +5,13 @@
   "projectType": "library",
   "tags": ["scope:infrastructure", "scope:ui"],
   "targets": {
+    "nx-release-publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish --provenance",
+        "cwd": "packages/json-render/sveltekit"
+      }
+    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
