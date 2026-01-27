@@ -1,4 +1,13 @@
 {
   "name": "ts-cleanco",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json"
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "nx-release-publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm publish --provenance",
+        "cwd": "packages/ts-cleanco"
+      }
+    }
+  }
 }
