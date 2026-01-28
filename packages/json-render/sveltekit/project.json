@@ -5,6 +5,14 @@
   "projectType": "library",
   "tags": ["scope:infrastructure", "scope:ui"],
   "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm svelte-check --tsconfig ./tsconfig.svelte-check.json --threshold error",
+        "cwd": "packages/json-render/sveltekit"
+      },
+      "cache": true
+    },
     "nx-release-publish": {
       "executor": "nx:run-commands",
       "options": {

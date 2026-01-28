@@ -2,6 +2,14 @@
   "name": "ts-cleanco",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm typecheck",
+        "cwd": "packages/ts-cleanco"
+      },
+      "cache": true
+    },
     "nx-release-publish": {
       "executor": "nx:run-commands",
       "options": {

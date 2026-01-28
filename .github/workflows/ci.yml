@@ -48,6 +48,7 @@ jobs:
         shell: bash
 
       - name: Publish packages
+        if: ${{ github.actor != 'renovate[bot]' }}
         run: pnpm nx release publish
         shell: bash
         env:

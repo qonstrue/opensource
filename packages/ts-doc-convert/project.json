@@ -2,6 +2,14 @@
   "name": "ts-doc-convert",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "targets": {
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm typecheck",
+        "cwd": "packages/ts-doc-convert"
+      },
+      "cache": true
+    },
     "nx-release-publish": {
       "executor": "nx:run-commands",
       "options": {
