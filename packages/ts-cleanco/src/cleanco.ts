@@ -106,15 +106,19 @@ const caseInsensitiveReplace = (
     originalString.replace(new RegExp(searchPattern, 'i'), replaceString)
   );
 
+// Hyphen must be escaped so it doesn't form a range (e.g. +-= would include digits 0-9)
+const PUNCTUATION_ONLY = /[.,\/#!$%^&*()_+\-='":{}|<>?]/g;
+const PUNCTUATION_AND_SPACE = /[\s.,\/#!$%^&*()_+\-='":{}|<>?]/g;
+
 export const removePunctuation = (text: string): string =>
-  text.replace(/[.,\/#!$%^&*()_+-='":{}|<>?]/g, '');
+  text.replace(PUNCTUATION_ONLY, '');
 
 export const removeInternalCharsFromLastWord = (str: string): string =>
   str.replace(/\S+(\S*)$/, (match) =>
-    match.trim().replace(/[\s.,\/#!$%^&*()_+-='":{}|<>?]/g, '')
+    match.trim().replace(PUNCTUATION_AND_SPACE, '')
   );
 
 export const removeInternalCharsFromFirstWord = (str: string): string =>
   str.replace(/^(\S*)\S+/, (match) =>
-    match.trim().replace(/[\s.,\/#!$%^&*()_+-='":{}|<>?]/g, '')
+    match.trim().replace(PUNCTUATION_AND_SPACE, '')
   );

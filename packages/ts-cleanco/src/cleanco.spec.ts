@@ -63,6 +63,16 @@ describe('Cleanco', () => {
   );
 });
 
+describe('Company names with leading digits', () => {
+  it.each([
+    ['4Syte Limited', '4Syte'],
+    ['4Syte Ltd', '4Syte'],
+    ['360Networks Inc.', '360Networks'],
+  ])('should preserve digits in company name: %s -> %s', (name, expected) => {
+    expect(cleanCo(name)).toEqual(expected);
+  });
+});
+
 describe('Replace suffix in company name', () => {
   it.each([
     ['Sustentabilitas ltd', 'ltd', 'Sustentabilitas'],
