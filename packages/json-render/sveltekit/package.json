@@ -1,6 +1,6 @@
 {
   "name": "json-render-sveltekit",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Svelte/SvelteKit renderer for @json-render/core. JSON becomes Svelte components. Port of @json-render/react by Vercel Labs.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

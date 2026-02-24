@@ -54,8 +54,10 @@
   "release": {
     "projects": ["packages/**"],
     "releaseTagPattern": "release/{version}",
-    "git": {
-      "commitMessage": "chore(release): {version}"
+    "version": {
+      "git": {
+        "commitMessage": "chore(release): {version}"
+      }
     }
   },
   "defaultBase": "main",
