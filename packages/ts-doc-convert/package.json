@@ -36,16 +36,16 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/node": "24.10.9",
-    "typescript": "5.6.3"
+    "@types/node": "24.11.0",
+    "typescript": "5.9.3"
   },
   "dependencies": {
-    "@m2d/html": "1.0.2",
-    "@m2d/image": "1.1.0",
-    "@m2d/list": "0.0.6",
-    "@m2d/math": "0.0.5",
-    "@m2d/table": "0.0.5",
-    "effect": "2.2.3",
+    "@m2d/html": "1.1.11",
+    "@m2d/image": "1.4.1",
+    "@m2d/list": "0.0.9",
+    "@m2d/math": "0.0.6",
+    "@m2d/table": "0.1.1",
+    "effect": "2.4.19",
     "mammoth": "1.11.0",
     "mdast": "3.0.0",
     "rehype-parse": "9.0.1",
