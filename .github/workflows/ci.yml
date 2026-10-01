@@ -15,27 +15,30 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v6.1.0
         with:
           fetch-depth: 0
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v5.0.0
         with:
           version: 10.28.2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.5.0
         with:
           node-version: 24.13.0
           cache: 'pnpm'
           registry-url: "https://registry.npmjs.org"
 
-      # Ensure recent npm for trusted publishing (OIDC)
-      - name: Use latest npm
-        run: npm install -g npm@latest
+      # Ensure recent npm for trusted publishing (OIDC, npm >= 11.5.1). Pinned, not
+      # `@latest`: npm 12 requires node `^22.22.2 || ^24.15.0 || >=26.0.0`, so once it
+      # shipped, `npm@latest` started failing EBADENGINE against the node pinned above
+      # and took every CI run with it. Keep this version compatible with `node-version`.
+      - name: Use pinned npm
+        run: npm install -g npm@11.21.0
 
-      - uses: nrwl/nx-set-shas@v5
+      - uses: nrwl/nx-set-shas@v5.0.1
 
       - name: Install packages
         run: pnpm install --frozen-lockfile
@@ -47,8 +50,12 @@ jobs:
         run: pnpm nx report
         shell: bash
 
+      # Only ever publish from a push to main. The gate used to be the actor check
+      # alone, which skips only Renovate's own runs — so any human-pushed pull request
+      # ran `nx release publish` for real against npm, and failed the build on
+      # EPUBLISHCONFLICT for every already-released version.
       - name: Publish packages
-        if: ${{ github.actor != 'renovate[bot]' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor != 'renovate[bot]' }}
         run: pnpm nx release publish
         shell: bash
         env:
