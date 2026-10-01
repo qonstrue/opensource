@@ -50,8 +50,12 @@ jobs:
         run: pnpm nx report
         shell: bash
 
+      # Only ever publish from a push to main. The gate used to be the actor check
+      # alone, which skips only Renovate's own runs — so any human-pushed pull request
+      # ran `nx release publish` for real against npm, and failed the build on
+      # EPUBLISHCONFLICT for every already-released version.
       - name: Publish packages
-        if: ${{ github.actor != 'renovate[bot]' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor != 'renovate[bot]' }}
         run: pnpm nx release publish
         shell: bash
         env:
