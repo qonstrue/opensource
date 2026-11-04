@@ -40,7 +40,7 @@ jobs:
       - name: Use pinned npm
         run: npm install -g npm@11.21.0
 
-      - uses: nrwl/nx-set-shas@v5.0.1
+      - uses: nrwl/nx-set-shas@v5.1.0
 
       - name: Install packages
         run: pnpm install --frozen-lockfile
