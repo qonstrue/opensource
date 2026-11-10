@@ -5,23 +5,34 @@ This repository contains the following open source libraries:
 ## Published Packages
 
 ### [ts-cleanco](https://www.npmjs.com/package/ts-cleanco)
+
 **Version:** 1.2.1  
 **Description:** Typescript implementation of cleanco python  
 **npm:** https://www.npmjs.com/package/ts-cleanco
 
 ### [ts-cologo](https://www.npmjs.com/package/ts-cologo)
+
 **Version:** 1.2.1  
 **Description:** Extract company logos  
 **npm:** https://www.npmjs.com/package/ts-cologo
 
-### [ts-doc-convert](https://www.npmjs.com/package/ts-doc-convert)
-**Version:** 1.2.1  
-**Description:** Convert documents between formats (DOCX, Markdown, etc.)  
+## Deprecated Packages
+
+These packages are **deprecated and no longer maintained**. They will receive no
+further updates, including security fixes, and no replacement is planned. Their
+sources are being removed from this repository; the last published versions
+remain installable on npm for existing users.
+
+### ~~[ts-doc-convert](https://www.npmjs.com/package/ts-doc-convert)~~
+
+**Status:** Deprecated — unmaintained, no replacement  
+**Was:** Convert documents between formats (DOCX, Markdown, etc.)  
 **npm:** https://www.npmjs.com/package/ts-doc-convert
 
-### [json-render-sveltekit](https://www.npmjs.com/package/json-render-sveltekit)
-**Version:** 1.2.1  
-**Description:** Svelte/SvelteKit renderer for @json-render/core. JSON becomes Svelte components. Port of @json-render/react by Vercel Labs.  
+### ~~[json-render-sveltekit](https://www.npmjs.com/package/json-render-sveltekit)~~
+
+**Status:** Deprecated — unmaintained, no replacement  
+**Was:** Svelte/SvelteKit renderer for @json-render/core. JSON becomes Svelte components. Port of @json-render/react by Vercel Labs.  
 **npm:** https://www.npmjs.com/package/json-render-sveltekit
 
 ## Development

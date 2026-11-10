@@ -1,40 +1,37 @@
-**README.md**
+# ts-doc-convert
 
-# Get company logos/favicons by domain
+> ## ⚠️ Deprecated
+>
+> **This package is deprecated and no longer maintained.** It will receive no
+> further updates, including security fixes.
+>
+> No replacement is planned. If you depend on it, pin the last published
+> version and plan to migrate away — we suggest calling
+> [`mammoth`](https://www.npmjs.com/package/mammoth),
+> [`unified`](https://www.npmjs.com/package/unified) and
+> [`@m2d/core`](https://www.npmjs.com/package/@m2d/core) directly, which is all
+> this package ever wrapped.
 
-**A TypeScript package to find company logos or favicons by domain (use as a fallback).**
-
-This package is designed to download company logos and convert them to base64. It can be used as a backup mechanism where you are missing some logos but know the domain of the company
+Convert documents between formats: DOCX to Markdown and Markdown to DOCX.
 
 ## Installation
 
 ```bash
-npm install ts-cologo
+npm install ts-doc-convert
 ```
 
 ## Usage
 
+Both functions return an [Effect](https://effect.website), so failures travel
+the error channel rather than being thrown:
+
 ```typescript
-import { fetchAsBase64String } from 'ts-cologo';
+import { Effect } from 'effect';
+import { docxToMarkdown, markdownToDocx } from 'ts-doc-convert';
 
-const base64String = await fetchAsBase64String(
-  fetch,
-  'https://www.iana.org/_img/2022/iana-logo-header.svg'
-);
-const base64Logo = await fallbackCompanyLogoFetch(fetch, 'google.com')
-console.log(base64String); // data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w....
-console.log(base64Logo); // data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w....
+const markdown = await Effect.runPromise(docxToMarkdown(docxBuffer));
+const docx = await Effect.runPromise(markdownToDocx(markdownBuffer));
 ```
-
-## Contributing
-
-We welcome contributions to improve this package. Here's how you can contribute:
-
-1. **Fork the repository**
-2. **Create a new branch**
-3. **Make your changes**
-4. **Test your changes**
-5. **Submit a pull request**
 
 ## License
 
