@@ -1,3 +1,29 @@
+## 1.2.3 (2026-11-10)
+
+### 🚀 Features
+
+- **json renderer:** add typescript declarations ([d40af7c](https://github.com/qonstrue/opensource/commit/d40af7c))
+- **ts-cleanco:** allow company names with leading digits ([6254982](https://github.com/qonstrue/opensource/commit/6254982))
+
+### 🩹 Fixes
+
+- **ci:** back to green ([f02f97c](https://github.com/qonstrue/opensource/commit/f02f97c))
+- **ci:** use trusted publishing ([edcb138](https://github.com/qonstrue/opensource/commit/edcb138))
+- **ci:** use trusted publishing ([eef2102](https://github.com/qonstrue/opensource/commit/eef2102))
+- **ci:** pin npm instead of installing npm@latest ([3ab3b99](https://github.com/qonstrue/opensource/commit/3ab3b99))
+- **ci:** never publish from a pull request ([dd71dd9](https://github.com/qonstrue/opensource/commit/dd71dd9))
+- **ci:** publish on release/* tags, not on every main push ([#99](https://github.com/qonstrue/opensource/issues/99))
+- **deps:** pin dependencies ([8fdba3a](https://github.com/qonstrue/opensource/commit/8fdba3a))
+- **deps:** pin dependencies ([c0b2f61](https://github.com/qonstrue/opensource/commit/c0b2f61))
+- **deps:** update dependency mammoth to v1.11.0 [security] ([#50](https://github.com/qonstrue/opensource/pull/50))
+- **deps:** update dependency mdast to v3 ([e729005](https://github.com/qonstrue/opensource/commit/e729005))
+- **deps:** pin dependencies ([dfbe5e7](https://github.com/qonstrue/opensource/commit/dfbe5e7))
+- **release:** repair the release-tag path so packages can publish ([#99](https://github.com/qonstrue/opensource/issues/99))
+
+### ❤️ Thank You
+
+- sustentabilitas
+
 ## 1.1.15 (2024-11-17)
 
 This was a version bump only, there were no code changes.
