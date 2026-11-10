@@ -41,11 +41,19 @@ Instructions for each library are provided in the relevant readme file in the pa
 
 ### Creating a Release
 
-To create a release and push to npmjs.org:
+All four packages are a **fixed release group**, so they version and publish in
+lockstep — a release bumps every package, including ones with no changes.
 
 ```bash
-pnpm nx release version
+pnpm nx release patch --skip-publish   # bump, changelog, commit, tag
 git push && git push --tags
 ```
 
-The CI workflow will automatically publish the packages to npmjs.org using trusted publishing (OIDC).
+`--skip-publish` is deliberate: publishing is CI's job. Pushing the `release/*`
+tag triggers the workflow, which publishes to npmjs.org using trusted publishing
+(OIDC) with provenance. Running the publish locally would bypass both.
+
+> **One-time note:** versions 1.2.0–1.2.2 were published without matching
+> `release/*` tags, so nx cannot resolve the previous tag. The first release
+> after this needs `--first-release` added to the command above. Once that
+> creates a `release/*` tag, subsequent releases no longer need the flag.
