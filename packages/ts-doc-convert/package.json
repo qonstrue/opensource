@@ -1,7 +1,7 @@
 {
   "name": "ts-doc-convert",
   "version": "1.2.2",
-  "description": "Extract company logos",
+  "description": "DEPRECATED - convert documents between formats (DOCX, Markdown)",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

@@ -1,5 +1,18 @@
 # json-render-sveltekit
 
+> ## ⚠️ Deprecated
+>
+> **This package is deprecated and no longer maintained.** It will receive no
+> further updates, including security fixes.
+>
+> No replacement is planned. If you depend on it, pin the last published
+> version and plan to migrate away. The upstream
+> [`@json-render/react`](https://www.npmjs.com/package/@json-render/react) by
+> Vercel Labs, which this package was a port of, is unaffected by this
+> deprecation.
+>
+> The documentation below is retained for existing users only.
+
 **Predictable. Guardrailed. Fast.** Svelte/SvelteKit renderer for user-prompted dashboards, widgets, apps, and data visualizations.
 
 > This package is a Svelte/SvelteKit port of [`@json-render/react`](https://www.npmjs.com/package/@json-render/react) by [Vercel Labs](https://github.com/vercel-labs/json-render). All core functionality and concepts are derived from the original React implementation.
@@ -248,9 +261,9 @@ Components in your registry receive these props:
 ```typescript
 interface ComponentRenderProps<P = Record<string, unknown>> {
   element: UIElement<string, P>; // The element definition
-  children?: Snippet;            // Rendered children (Svelte snippet)
+  children?: Snippet; // Rendered children (Svelte snippet)
   onAction?: (action: Action) => void; // Action callback
-  loading?: boolean;             // Streaming in progress
+  loading?: boolean; // Streaming in progress
 }
 ```
 
@@ -312,9 +325,3 @@ MIT
 
 - [`@json-render/core`](https://www.npmjs.com/package/@json-render/core) - Core JSON render types and utilities
 - [`@json-render/react`](https://www.npmjs.com/package/@json-render/react) - Original React implementation
-
-
-## TODO
-
-[ ] Example app
-[ ] Storybook example
